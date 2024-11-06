@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BotGhost Variable Calculator</title>
+    <link rel="icon" href="logo.png" type="image/png"> <!-- Favicon -->
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Protest+Strike&display=swap" rel="stylesheet">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Solve Equation Generator">
+    <meta name="twitter:description" content="Making Solve Equation Variables has never been easier, just use our UI to build your equation, click a button, and copy your variable!">
+    <meta name="twitter:image" content="https://i.imgur.com/QxhY6mt.png">
+    <meta name="twitter:url" content="https://mathbg.magicgamer.xyz">
+</head>
+<body>
+
+    <div class="container">
+        <h1>BotGhost Solve Equation Builder</h1>
+        
+        <!-- Display screen -->
+        <div id="display">Equation</div>
+        
+        <!-- Number and operation buttons -->
+        <div>
+            <button class="button" onclick="appendToEquation('1')">1</button>
+            <button class="button" onclick="appendToEquation('2')">2</button>
+            <button class="button" onclick="appendToEquation('3')">3</button>
+            <button class="button" onclick="appendToEquation('+')">+</button>
+        </div>
+        <div>
+            <button class="button" onclick="appendToEquation('4')">4</button>
+            <button class="button" onclick="appendToEquation('5')">5</button>
+            <button class="button" onclick="appendToEquation('6')">6</button>
+            <button class="button" onclick="appendToEquation('-')">-</button>
+        </div>
+        <div>
+            <button class="button" onclick="appendToEquation('7')">7</button>
+            <button class="button" onclick="appendToEquation('8')">8</button>
+            <button class="button" onclick="appendToEquation('9')">9</button>
+            <button class="button" onclick="appendToEquation('*')">*</button>
+        </div>
+        <div>
+            <button class="button" onclick="appendToEquation('0')">0</button>
+            <button class="button" onclick="appendToEquation('.')">.</button> <!-- Decimal Button -->
+            <button class="button" onclick="appendToEquation('/')">/</button>
+            <button class="button" onclick="clearEquation()">Clear</button>
+            <button class="button" style="font-size: 14px;" onclick="openModal()">Insert Variable</button>
+        </div>
+        
+        <!-- Glowing "Create Variable" Button -->
+        <button class="glowing-button" onclick="createSolveEquation()">Create Variable</button>
+    </div>
+
+    <!-- Modal for variable input -->
+    <div id="modal">
+        <h3>Insert Variable</h3>
+        <p class="description">Please enter your variable in the format: {variableName}</p>
+        <input type="text" id="variableInput" placeholder="{variableName}" />
+        <button class="modal-button" onclick="insertVariable()">Add Variable</button>
+        <button class="modal-button" id="modal-close" onclick="closeModal()">Cancel</button>
+    </div>
+
+    <!-- Dismissible popup for generated result -->
+    <div id="popup" onclick="copyToClipboard()">
+        <span id="popup-content"></span>
+        <span class="close-btn" onclick="closePopup(event)">[x]</span>
+    </div>
+    
+    <footer>
+        <a href="https://magicgamer.carrd.co" class="magicgamer-glow" target="_blank" rel="noopener noreferrer">Made by MagicGamer</a>
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
